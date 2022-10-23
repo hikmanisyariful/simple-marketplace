@@ -34,7 +34,7 @@ export default function App() {
       <Grid xs={12}>
         <Header>Evenelia</Header>
       </Grid>
-      <Grid xs={12} style={{ display: "flex", justifyContent: "center", marginRight: "50px", marginTop: "50px" }}>
+      <Grid xs={12} style={{ display: "flex", justifyContent: "center", marginTop: "50px" }}>
         <Search />
       </Grid>
       {products.loading ? (
