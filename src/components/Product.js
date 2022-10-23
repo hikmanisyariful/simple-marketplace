@@ -11,7 +11,7 @@ import IconButton from "@mui/material/IconButton";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Collapse from "@mui/material/Collapse";
 
-export default function Product({ key, item }) {
+export default function Product({ item }) {
   const descHtml = parse(item.description);
   const [expanded, setExpanded] = useState(false);
 
@@ -20,7 +20,7 @@ export default function Product({ key, item }) {
   };
 
   return (
-    <Card sx={{ maxWidth: 345 }} key={key}>
+    <Card sx={{ maxWidth: 345 }}>
       <CardActionArea sx={{ height: 450 }}>
         <CardMedia component="img" height="250" image={item.image} alt={item.name} classes={{ objectFit: "cover" }} />
         <CardContent>

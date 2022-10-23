@@ -5,11 +5,26 @@ const initialState = {
   data: null,
   loading: false,
   isError: false,
+  dataSearch: null,
+  valueSearch: "",
 };
 
 const products = createSlice({
   name: "products",
   initialState,
+  reducers: {
+    setValueSearch(state, action) {
+      state.valueSearch = action.payload;
+    },
+    searchProducts(state, action) {
+      const products = state.data;
+      const searchProducts = products.filter((item) => item.name === action.payload || item.sku === action.payload);
+      state.dataSearch = searchProducts;
+    },
+    resetDataSearch(state, action) {
+      state.dataSearch = null;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchAllProduct.pending, (state, action) => {
@@ -27,4 +42,5 @@ const products = createSlice({
   },
 });
 
+export const { searchProducts, setValueSearch, resetDataSearch } = products.actions;
 export default products.reducer;
